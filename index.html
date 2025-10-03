@@ -21,7 +21,15 @@
         <div class="header_brand">
             <img class="brand_logo" src="assets/imagens/logo-wl.png" alt="Logo Washington Lyniker">
         </div>
-        <i id="toggleTheme" class="bi bi-sun"></i>
+        <div class="theme-toggle-container">
+            <div class="theme-toggle">
+                <div class="sun-moon">
+                    <i class="bi bi-sun"></i>
+                    <i class="bi bi-moon"></i>
+                </div>
+            </div>
+            <i id="toggleTheme" class="bi bi-sun"></i>
+        </div>
     </header>
 
     <nav class="">
@@ -30,6 +38,8 @@
             <li class="menu__item"><a class="menu__link" href="#sobre"><i class="menu__icon bi bi-person"></i><span class="menu__text">Sobre</span></a></li>
             <li class="menu__item"><a class="menu__link" href="#habilidades"><i class="menu__icon bi bi-code-slash"></i><span class="menu__text">Habilidades</span></a></li>
             <li class="menu__item"><a class="menu__link" href="#projetos"><i class="menu__icon bi bi-laptop"></i><span class="menu__text">Projetos</span></a></li>
+            <li class="menu__item"><a class="menu__link" href="#formacoes"><i class="menu__icon bi bi-mortarboard"></i><span class="menu__text">Formações</span></a></li>
+            <li class="menu__item"><a class="menu__link" href="#formacoes-digitais"><i class="menu__icon bi bi-laptop"></i><span class="menu__text">Formações Digitais</span></a></li>
             <li class="menu__item"><a class="menu__link" href="#contato"><i class="menu__icon bi bi-envelope"></i><span class="menu__text">Contato</span></a></li>
         </ul>
     </nav>
@@ -111,6 +121,44 @@
             </div>
         </section>
 
+        <!-- Seção Formações -->
+        <section id="formacoes" class="section">
+            <h2>Formações</h2>
+            <div class="education-container">
+                <div class="education-item">
+                    <h3>Técnico em Desenvolvimento de Sistemas</h3>
+                    <p class="institution">SENAI - Serviço Nacional de Aprendizagem Industrial</p>
+                    <p class="period">2025 - Em andamento</p>
+                    <p>Curso técnico focado em desenvolvimento de software, incluindo programação, banco de dados, desenvolvimento web e mobile.</p>
+                </div>
+                <div class="education-item">
+                    <h3>Técnico em Informática</h3>
+                    <p class="institution">Grau Técnico</p>
+                    <p class="period">Concluído</p>
+                    <p>Formação em tecnico em informatica(TI)</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Seção Formações Digitais -->
+        <section id="formacoes-digitais" class="section">
+            <h2>Formações Digitais</h2>
+            <div class="digital-education-container">
+                <div class="education-card">
+                    <h3>Bootcamp Java</h3>
+                    <p class="platform">Bradesco Bootcamp - DIO</p>
+                    <p class="period">Cursando</p>
+                    <p>Formação completa em Java, incluindo programação orientada a objetos, Spring Boot, banco de dados e desenvolvimento de APIs REST.</p>
+                </div>
+                <div class="education-card">
+                    <h3>Ri Happy - Front-end do Zero #2</h3>
+                    <p class="platform">DIO (Digital Innovation One)</p>
+                    <p class="period">2025 - Concluído</p>
+                    <p>Bootcamp focado em desenvolvimento Front-end, abordando HTML, CSS, JavaScript, Git/GitHub e conceitos fundamentais de desenvolvimento web.</p>
+                </div>
+            </div>
+        </section>
+
         <!-- Seção Contato -->
         <section id="contato" class="section">
             <h2>Entre em Contato</h2>
@@ -128,6 +176,9 @@
         <p>© 2025 Washington Lyniker. Todos os direitos reservados. | Desenvolvido por Washington Lyniker <a href="https://github.com/Washington-ux-ux">Github</a></p>
     </footer>
 
+    <button id="backToTop" title="Voltar ao topo">
+        <i class="bi bi-arrow-up"></i>
+    </button>
     <script src="assets/script/script.js"></script>
 </body>
 </html>

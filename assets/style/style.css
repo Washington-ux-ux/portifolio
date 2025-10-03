@@ -1,13 +1,12 @@
 :root, :root[data-theme="dark"] {
     --primary-color: #F0F0F0;
-
-    --primary-bg-color: #111217;
-    --secondary-bg-color: #28292E;
-    --border-color: #28292E;
-
-    --title-color: #9A9A9C;
-    --link-color: #9A9A9C;
-    --icon-color: #C7C8C9;
+    --primary-bg-color: #1A1C23;
+    --secondary-bg-color: #2D3038;
+    --border-color: #3A3E47;
+    --title-color: #E0E0E0;
+    --text-color: #E0E0E0;
+    --link-color: #64B5F6;
+    --icon-color: #90CAF9;
   }
 
 :root[data-theme="light"] {
@@ -69,18 +68,120 @@ i {
     height: 3.25rem;
 }
 
-#toggleTheme {
-    font-size: 1.5rem;
-    color: #000000; 
+/* Estilos para o container do toggle */
+.theme-toggle-container {
+    position: relative;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     cursor: pointer;
-    transition: ease-in-out 0.4s;
 }
 
-[data-theme="light"] #toggleTheme.bi-sun {
-    color: #FFD700; 
+/* Estilo base do botão de tema */
+#toggleTheme {
+    position: absolute;
+    opacity: 0;
+    width: 100%;
+    height: 100%;
+    cursor: pointer;
+    z-index: 2;
 }
-[data-theme="dark"] #toggleTheme.bi-moon {
-    color: #C0C0C0; 
+
+/* Container do sol e lua */
+.theme-toggle {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    overflow: hidden;
+    border-radius: 50%;
+    background: var(--primary-bg-color);
+    transition: all 0.3s ease;
+}
+
+/* Container do sol e lua */
+.sun-moon {
+    position: absolute;
+    width: 100%;
+    height: 200%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    padding: 5px 0;
+    transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Posição inicial - mostra o sol */
+[data-theme="light"] .sun-moon {
+    transform: translateY(0);
+}
+
+/* Posição para tema escuro - mostra a lua */
+[data-theme="dark"] .sun-moon {
+    transform: translateY(-50%);
+}
+
+/* Estilo dos ícones */
+.sun-moon i {
+    font-size: 1.5rem;
+    transition: all 0.3s ease;
+    color: var(--icon-color);
+}
+
+/* Cores específicas para cada ícone */
+.sun-moon .bi-sun {
+    color: #FFD700;
+}
+
+.sun-moon .bi-moon {
+    color: #E0E0E0;
+}
+
+/* Efeito de hover */
+.theme-toggle:hover {
+    transform: scale(1.1);
+}
+
+/* Animação de brilho */
+@keyframes sunPulse {
+    0% { box-shadow: 0 0 0 0 rgba(255, 215, 0, 0.4); }
+    70% { box-shadow: 0 0 0 10px rgba(255, 215, 0, 0); }
+    100% { box-shadow: 0 0 0 0 rgba(255, 215, 0, 0); }
+}
+
+/* Aplicar animação apenas no tema claro */
+[data-theme="light"] .theme-toggle:hover .bi-sun {
+    animation: sunPulse 1.5s infinite;
+}
+
+/* Efeito de brilho para a lua no tema escuro */
+[data-theme="dark"] .theme-toggle:hover .bi-moon {
+    filter: drop-shadow(0 0 8px rgba(255, 255, 255, 0.8));
+}
+
+/* Efeito de clique */
+.theme-toggle.clicked {
+    transform: scale(0.9);
+    transition: transform 0.2s ease;
+}
+
+/* Ajustes de responsividade */
+@media (max-width: 768px) {
+    .theme-toggle {
+        width: 36px;
+        height: 36px;
+    }
+    
+    .sun-moon i {
+        font-size: 1.3rem;
+    }
+}
+
+/* Suavizar a transição de tema */
+body {
+    transition: background-color 0.5s ease, color 0.5s ease;
 }
 .menu {
     list-style: none;
@@ -478,4 +579,124 @@ footer a:hover {
     .menu--principal .menu__icon {
         margin-bottom: 0;
     }
+}
+
+/* Seção Formações */
+.education-container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 2rem;
+}
+
+.education-item {
+    background-color: var(--secondary-bg-color);
+    border-radius: 8px;
+    padding: 2rem;
+    margin-bottom: 2rem;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.education-item h3 {
+    color: var(--primary-color);
+    margin-bottom: 0.5rem;
+}
+
+.institution, .platform {
+    color: var(--text-color);
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+    display: block;
+}
+
+.period {
+    color: var(--text-color);
+    opacity: 0.8;
+    font-size: 0.9rem;
+    margin-bottom: 1rem;
+    display: block;
+}
+
+/* Seção Formações Digitais */
+.digital-education-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem;
+}
+
+.education-card {
+    background-color: var(--secondary-bg-color);
+    border-radius: 8px;
+    padding: 1.5rem;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.education-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+}
+
+.education-card h3 {
+    color: var(--primary-color);
+    margin-bottom: 0.75rem;
+    font-size: 1.25rem;
+}
+
+/* Responsividade para telas menores */
+@media (max-width: 768px) {
+    .digital-education-container {
+        grid-template-columns: 1fr;
+        padding: 1rem;
+    }
+    
+    .education-container {
+        padding: 1rem;
+    }
+}
+
+/* Botão Voltar ao Topo */
+#backToTop {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    width: 50px;
+    height: 50px;
+    background: #007bff;
+    border: 2px solid #fff;
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    transition: all 0.3s ease;
+    z-index: 9999;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(20px);
+    color: white;
+    font-size: 24px;
+    padding: 0;
+}
+
+#backToTop i {
+    transition: transform 0.3s ease;
+}
+
+#backToTop:hover {
+    background-color: #0056b3;
+    transform: translateY(-3px);
+}
+
+#backToTop:hover i {
+    transform: scale(1.2);
+}
+
+#backToTop.show {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
 }
